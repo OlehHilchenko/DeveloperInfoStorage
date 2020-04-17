@@ -1,16 +1,17 @@
 language: java
 
 services:
-  - mysql
-
-user: root
-userpassword: root
+  - mysql -u root -p root
 
 addons:
   apt:
     sources:
+      - purge mysql-client-core-5.6
+      - autoclean
+      - autoremove
       - mysql-5.7-trusty
     packages:
+      - mysql-client-core-5.5
       - mysql-server
 
 dist: trusty
