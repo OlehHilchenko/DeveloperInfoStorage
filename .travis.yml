@@ -1,3 +1,7 @@
+dist: trusty
+sudo: required
+group: edge
+
 language: java
 
 services:
@@ -10,9 +14,9 @@ addons:
     packages:
       - mysql-server
 
-dist: trusty
 
-sudo: required
 
 before_script:
   - mysql -e 'create database csuser_db;'
+  - mysql -e "CREATE USER 'root'@'localhost' IDENTIFIED WITH mysql_password 'root';
+  - mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
