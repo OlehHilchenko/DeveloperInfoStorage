@@ -7,12 +7,11 @@ before_install:
 - sudo mysql -e "CREATE USER 'csuser'@'localhost' IDENTIFIED BY 'csuser'; GRANT ALL PRIVILEGES ON * . * TO 'csuser'@'localhost'; FLUSH PRIVILEGES;"
 - sudo mysql_upgrade
 - sudo service mysql restart
+- sudo mysql -e 'DROP DATABASE IF EXISTS csuser_db;'
+- sudo mysql -e 'CREATE DATABASE IF NOT EXISTS csuser_db;'
+- sudo mysql -e 'CREATE SCHEMA csuser_db;'
 
-before_script:
-  - mysql -e 'DROP DATABASE IF EXISTS csuser_db;'
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS csuser_db;'
-  - echo "USE mysql; CREATE USER 'csuser'@'localhost' IDENTIFIED BY 'csuser'; GRANT ALL PRIVILEGES ON * . * TO 'csuser'@'localhost'; FLUSH PRIVILEGES;
-  - mysql -e 'CREATE SCHEMA csuser_db;'
+
 
 after_failure:
     - cat "$TCI_D_MYSQL_ROOT/mysql.err"
