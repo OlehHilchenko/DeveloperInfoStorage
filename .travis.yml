@@ -14,6 +14,5 @@ before_script:
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - mysql -e 'CREATE SCHEMA csuser_db;'
 
-  after_failure:
-    <..snip..>
+after_failure:
     - cat "$TCI_D_MYSQL_ROOT/mysql.err"
