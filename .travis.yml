@@ -3,8 +3,17 @@ language: java
 services:
   - mysql
 
+before_install:
+- sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
+- sudo mysql_upgrade
+- sudo service mysql restart
+
 before_script:
   - mysql -e 'DROP DATABASE IF EXISTS csuser_db;'
   - mysql -e 'CREATE DATABASE IF NOT EXISTS csuser_db;'
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - mysql -e 'CREATE SCHEMA csuser_db;'
+
+  after_failure:
+    <..snip..>
+    - cat "$TCI_D_MYSQL_ROOT/mysql.err"
