@@ -1,11 +1,12 @@
-dist: trusty
-sudo: required
-group: edge
-
 language: java
+jdk:
+- oraclejdk8
 
 services:
   - mysql
 
 before_script:
-  - mysql -e 'create database csuser_db;' -U root -P root
+  - mysql -e 'DROP DATABASE IF EXISTS csuser_db;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS csuser_db;'
+  - mysql -u root --root-character-set=utf8
+  - mysql -e 'CREATE SCHEMA csuser_db;'
