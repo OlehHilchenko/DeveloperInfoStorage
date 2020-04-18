@@ -1,4 +1,4 @@
-This application is used to store Developer objects.
+**This application is used to store Developer objects.**
 In it you can perform four basic operations:
         1). Add new Developer.
         2). Get view Developer.
@@ -17,3 +17,6 @@ Secondly: Download the maven dependencies to the local repository:
           mvn clean install
           
 Thirdly: Launch the application: src/main/java/com/olehhilchenko/AppRunner
+
+
+[![Build Status](https://travis-ci.org/OlehHilchenko/DeveloperInfoStorage.svg?branch=master)](https://travis-ci.org/OlehHilchenko/DeveloperInfoStorage)
