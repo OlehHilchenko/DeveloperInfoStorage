@@ -6,6 +6,6 @@ services:
 before_script:
   - mysql -e 'DROP DATABASE IF EXISTS csuser_db;'
   - mysql -e 'CREATE DATABASE IF NOT EXISTS csuser_db;'
-  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('password') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - mysql -u root -p root
   - mysql -e 'CREATE SCHEMA csuser_db;'
