@@ -9,7 +9,7 @@ You will need: mySQL local server.
 Maven. Java sdk.
 
 First: Need to create a schema "csuser_db" in mySQL.
-       You must create a user "root" with pass "root" to work with the database.
+       You must create a user "csuser" with pass "csuser" to work with the database.
        
 Secondly: Download the maven dependencies to the local repository:
           mvn dependency:get

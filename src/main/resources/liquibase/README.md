@@ -5,5 +5,5 @@ to the application works.
 
 Before the beginning of the assembly of the
 program with maven, yor must create scheme with "csuser_db" name, in mySQL.
-And create user "root" with pass "root", yor use it to access csuser_db scheme.
+And create user "csuser" with pass "csuser", yor use it to access csuser_db scheme.
    

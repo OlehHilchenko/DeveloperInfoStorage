@@ -25,8 +25,8 @@ public class HibernateUtil {
 
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/csuser_db?useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String USER = "root";
-    private static final String PASSWORD = "root";
+    private static final String USER = "csuser";
+    private static final String PASSWORD = "csuser";
     private static int id;
 
 
